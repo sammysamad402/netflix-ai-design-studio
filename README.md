@@ -1,5 +1,5 @@
 # 🎬 Netflix AI Design Studio
-## built by AbdulSamadShaikh - Bachelor of Engineering(I.T) 2026
+### Built by AbdulSamadShaikh - Bachelor of Engineering(I.T) 2026
 
 
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/)
