@@ -1,173 +1,293 @@
+````markdown
 # 🎬 Netflix AI Design Studio
 
-> **Course-End Project** — Creating Designs by Leveraging OpenAI & Gradio UI
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/)
+![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
+![Gradio](https://img.shields.io/badge/Gradio-UI-orange)
+![OpenAI](https://img.shields.io/badge/OpenAI-gpt--image--1-green)
+![License](https://img.shields.io/badge/License-MIT-yellow)
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/YOUR_USERNAME/netflix-ai-design-studio/blob/main/Netflix_AI_Design_Studio.ipynb)
-[![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python)](https://python.org)
-[![Gradio](https://img.shields.io/badge/Gradio-4.x-orange?logo=gradio)](https://gradio.app)
-[![OpenAI](https://img.shields.io/badge/OpenAI-DALL--E%203-green?logo=openai)](https://openai.com)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-
----
-
-## 📸 Preview
-
-A Netflix-branded AI image generation platform that converts text prompts into cinematic banners and posters using **OpenAI DALL-E 3** and **Gradio UI**.
-
-```
-User Prompt ──► Prompt Enhancer ──► DALL-E 3 API ──► PIL Image ──► Gradio Output
-```
+A Netflix-inspired AI creative platform built with **Python**, **Gradio**, and **OpenAI's gpt-image-1 model**. Generate high-quality Netflix-style posters, banners, and square promotional artwork through an intuitive dark-themed design studio interface.
 
 ---
 
-## ✨ Features
+# 🚀 Preview
 
-| Feature | Details |
-|---------|---------|
-| 🎨 **7 Style Presets** | Netflix Cinematic, Neo-Noir, Sci-Fi, Fantasy, Romance, Comedy, Minimalist |
-| 📐 **3 Output Sizes** | Vertical Poster (1024×1792), Horizontal Banner (1792×1024), Square (1024×1024) |
-| ⚡ **Quality Modes** | Standard (faster) and HD (highest quality) |
-| 💾 **One-click Download** | Built into the Gradio image output component |
-| 🌐 **Public Sharing** | Auto-generates a 72-hour public Gradio link |
-| 🔒 **Secure API Key** | Colab Secrets → Env Var → getpass (never hardcoded) |
-| 💡 **6 Example Prompts** | Pre-loaded Netflix campaign scenarios |
+Netflix AI Design Studio provides a streamlined workflow for creating AI-generated visual assets with customizable styles, formats, and quality settings.
 
----
+### Architecture Overview
 
-## 🚀 Quick Start (Google Colab)
-
-### Option A — One-click (Recommended)
-
-Click the badge above: **Open in Colab** → Run All Cells.
-
-### Option B — Manual
-
-1. Upload `Netflix_AI_Design_Studio.ipynb` to [colab.research.google.com](https://colab.research.google.com)
-2. Add your OpenAI API key to **Colab Secrets**:
-   - Click the 🔑 key icon in the left sidebar
-   - Add secret: **Name** = `OPENAI_API_KEY` | **Value** = `sk-...`
-3. Run all cells (`Runtime → Run all`)
-4. Click the generated `https://xxxx.gradio.live` link
-
----
-
-## 🔑 API Key Setup
-
-The notebook uses a **3-tier secure fallback**:
-
-```
-1. Google Colab Secrets  →  Key name: OPENAI_API_KEY  (recommended)
-2. Environment variable  →  export OPENAI_API_KEY=sk-...
-3. getpass prompt        →  Masked manual entry (not stored)
-```
-
-> **Get an API key:** [platform.openai.com/api-keys](https://platform.openai.com/api-keys)
+```text
+┌──────────────────────┐
+│      User Prompt     │
+└──────────┬───────────┘
+           │
+           ▼
+┌──────────────────────┐
+│   Gradio Interface   │
+│ (Netflix-themed UI)  │
+└──────────┬───────────┘
+           │
+           ▼
+┌──────────────────────┐
+│ OpenAI gpt-image-1   │
+│ Image Generation API │
+└──────────┬───────────┘
+           │
+           ▼
+┌──────────────────────┐
+│  Post Processing     │
+│  (Pillow Handling)   │
+└──────────┬───────────┘
+           │
+           ▼
+┌──────────────────────┐
+│ samples/ Auto Save   │
+│ Timestamped Outputs  │
+└──────────────────────┘
+````
 
 ---
 
-## 📁 Project Structure
+# ✨ Features
 
+| Feature                 | Description                                                   |
+| ----------------------- | ------------------------------------------------------------- |
+| 🎨 Netflix-Themed UI    | Professional dark interface with Netflix-inspired red accents |
+| 🖼️ AI Image Generation | Powered by OpenAI's `gpt-image-1` model                       |
+| 🎭 Style Presets        | 7 built-in creative style options                             |
+| 📐 Multiple Formats     | Poster, Banner, and Square outputs                            |
+| ⚡ Quality Selection     | Medium and High quality generation modes                      |
+| 🔐 Secure API Handling  | No hardcoded API keys                                         |
+| 💾 Auto Save System     | Generated images automatically saved to `samples/`            |
+| 🕒 Timestamped Files    | Unique filenames prevent accidental overwrites                |
+| ☁️ Google Colab Ready   | Designed for easy deployment in Colab                         |
+| 🖥️ Gradio Web App      | Interactive browser-based interface                           |
+
+---
+
+# ⚙️ Quick Start
+
+## Option A — One-Click Google Colab
+
+1. Open the notebook in Google Colab.
+2. Run all cells.
+3. Enter your OpenAI API key using one of the supported secure methods.
+4. Launch the Gradio interface.
+5. Generate Netflix-style artwork instantly.
+
+---
+
+## Option B — Manual Setup
+
+### Clone Repository
+
+```bash
+git clone https://github.com/sammysamad402/netflix-ai-design-studio.git
+
+cd netflix-ai-design-studio
 ```
+
+### Create Virtual Environment
+
+```bash
+python -m venv venv
+```
+
+### Activate Environment
+
+**Windows**
+
+```bash
+venv\Scripts\activate
+```
+
+**Linux / macOS**
+
+```bash
+source venv/bin/activate
+```
+
+### Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### Configure Environment
+
+Create a `.env` file:
+
+```env
+OPENAI_API_KEY=your_api_key_here
+```
+
+### Launch Application
+
+Run the notebook in Jupyter or Google Colab and start the Gradio interface.
+
+---
+
+# 🔒 Security & API Setup
+
+Netflix AI Design Studio uses a secure **3-tier fallback system** to retrieve API credentials.
+
+### Priority Order
+
+| Priority | Source                | Description                                              |
+| -------- | --------------------- | -------------------------------------------------------- |
+| 1️⃣      | Colab Secrets         | Recommended for Google Colab deployments                 |
+| 2️⃣      | Environment Variables | Reads `OPENAI_API_KEY` from `.env` or system environment |
+| 3️⃣      | Getpass Prompt        | Secure hidden terminal input if no key is found          |
+
+### Workflow
+
+```text
+Colab Secret Available?
+        │
+       Yes
+        ▼
+Use Secret
+        │
+       No
+        ▼
+Environment Variable Available?
+        │
+       Yes
+        ▼
+Use OPENAI_API_KEY
+        │
+       No
+        ▼
+Prompt Secure Input (getpass)
+```
+
+### Security Benefits
+
+* ✅ No hardcoded API keys
+* ✅ No credential exposure in notebooks
+* ✅ Compatible with public GitHub repositories
+* ✅ Safe for collaborative development
+
+---
+
+# 📂 Project Structure
+
+```text
 netflix-ai-design-studio/
 │
-├── Netflix_AI_Design_Studio.ipynb   ← Main notebook (run this)
-├── requirements.txt                  ← Python dependencies
-├── .env.example                      ← Environment variable template
-├── .gitignore                        ← Prevents key/cache leaks
-├── LICENSE                           ← MIT License
-└── README.md                         ← This file
+├── assets/
+│   ├── screenshots/
+│   └── branding/
+│
+├── samples/
+│   ├── generated_20260606_183015.png
+│   └── generated_20260606_184530.png
+│
+├── Netflix_AI_Design_Studio.ipynb
+├── requirements.txt
+├── .env.example
+├── .gitignore
+├── LICENSE
+└── README.md
 ```
 
 ---
 
-## 📦 Dependencies
+# 📦 Dependencies
 
-```txt
-openai>=1.30.0
-gradio>=4.0.0
-pillow>=10.0.0
-requests>=2.31.0
-```
+Install all required packages:
 
-Install manually:
 ```bash
-pip install openai gradio pillow requests
+pip install -r requirements.txt
 ```
 
----
+### Core Libraries
 
-## 💰 OpenAI DALL-E 3 Pricing
-
-| Quality | Size | Cost per Image |
-|---------|------|---------------|
-| Standard | 1024×1024 | ~$0.040 |
-| Standard | 1792×1024 / 1024×1792 | ~$0.080 |
-| HD | 1024×1024 | ~$0.080 |
-| HD | 1792×1024 / 1024×1792 | ~$0.120 |
-
-Monitor usage: [platform.openai.com/usage](https://platform.openai.com/usage)
+| Package       | Purpose                         |
+| ------------- | ------------------------------- |
+| OpenAI        | Image generation API            |
+| Gradio        | Interactive web interface       |
+| Pillow        | Image processing                |
+| python-dotenv | Environment variable management |
 
 ---
 
-## 🏗️ Architecture
+# 💰 Estimated API Pricing
 
-```python
-# Core function signature
-def generate_image(
-    prompt      : str,    # User's creative description
-    style_key   : str,    # Style preset (e.g. "🎬 Netflix Original")
-    size_key    : str,    # Output size (e.g. "🖼️ Poster (1024×1792)")
-    quality_key : str,    # Quality tier ("Standard" or "HD")
-) -> tuple[PIL.Image, str]:
-    ...
+> Pricing may change over time. Always refer to OpenAI's official pricing page for the latest rates.
+
+| Usage Level          | Images/Day | Monthly Estimate        |
+| -------------------- | ---------- | ----------------------- |
+| Hobby Testing        | 5–20       | Low Cost                |
+| Personal Projects    | 20–100     | Moderate Cost           |
+| Content Creation     | 100–500    | Higher Usage            |
+| Production Workloads | 500+       | Based on OpenAI Billing |
+
+### Cost Factors
+
+* Selected output quality
+* Image dimensions
+* Number of generations
+* OpenAI pricing updates
+
+---
+
+# 🛡️ GitHub Safety
+
+The repository includes a `.gitignore` file to prevent accidental uploads of sensitive or unnecessary files.
+
+### Recommended Exclusions
+
+```gitignore
+.env
+.env.local
+__pycache__/
+.ipynb_checkpoints/
+samples/
+*.pyc
+*.log
 ```
 
-**Prompt Enhancement Pipeline:**
-1. User writes a short creative prompt
-2. `build_enhanced_prompt()` appends a style-specific professional suffix
-3. DALL-E 3 receives the enriched prompt
-4. The returned URL is fetched and converted to a PIL Image
-5. Gradio displays it with a download button
+### Best Practices
+
+* Never commit API keys.
+* Use `.env.example` for configuration templates.
+* Keep generated assets out of version control when possible.
+* Review commits before pushing to GitHub.
+* Rotate exposed API keys immediately.
 
 ---
 
-## 🔒 Security & GitHub Safety
+# 🙏 Acknowledgements
 
-- ✅ API key **never hardcoded** in source
-- ✅ `.gitignore` excludes `.env`, `*.jpg`, `samples/`, Jupyter checkpoints
-- ✅ `.env.example` is a safe template (no real values)
-- ✅ `getpass` used for fallback entry (masks input)
+Built using:
 
----
+* OpenAI `gpt-image-1`
+* Gradio
+* Pillow
+* Python
+* Google Colab
 
-## 🧪 Running Tests
-
-The notebook includes a **Step 6: Backend Test Cell** that:
-- Calls `generate_image()` directly without the UI
-- Saves the output to `samples/test_output_<timestamp>.jpg`
-- Displays the image inline in Colab
+Special thanks to the open-source community for the tools that make rapid AI prototyping possible.
 
 ---
 
-## 📋 Course Information
+# 📜 License
 
-| Item | Detail |
-|------|--------|
-| **Project** | Course-End Project |
-| **Topic** | Creating Designs by Leveraging OpenAI & Gradio UI |
-| **Scenario** | Netflix campaign creative design platform |
-| **Deliverable** | Jupyter Notebook (.ipynb) |
+This project is licensed under the **MIT License**.
+
+See the [LICENSE](LICENSE) file for full details.
 
 ---
 
-## 📄 License
+### ⭐ Support
 
-This project is licensed under the [MIT License](LICENSE).
+If you find this project useful, consider starring the repository:
 
----
+**[https://github.com/sammysamad402/netflix-ai-design-studio](https://github.com/sammysamad402/netflix-ai-design-studio)**
 
-## 🙏 Acknowledgements
+Happy Creating! 🎬✨
 
-- [OpenAI DALL-E 3](https://openai.com/dall-e-3) — Image generation model
-- [Gradio](https://gradio.app) — Web UI framework
-- [Pillow](https://python-pillow.org) — Image processing library
+```
+```
