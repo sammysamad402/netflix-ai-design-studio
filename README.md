@@ -192,8 +192,8 @@ Prompt User via getpass()
 netflix-ai-design-studio/
 │
 ├── assets/
-│   ├── screenshots/
-│   └── branding/
+│   ├── UI_1
+│   └── UI_2
 │
 ├── samples/
 │   └── generated_images/
