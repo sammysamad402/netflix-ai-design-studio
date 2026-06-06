@@ -15,6 +15,54 @@ A Netflix-inspired AI creative platform built with **Python**, **Gradio**, and *
 # 🚀 Preview
 
 Netflix AI Design Studio combines a modern Gradio interface with OpenAI image generation capabilities to create high-quality branded assets.
+# 📸 Screenshots
+
+## Main Interface
+
+### Netflix AI Design Studio UI
+
+![Netflix AI Design Studio](assets/UI_gradle.png)
+
+The primary Netflix-themed interface where users can enter prompts, select output formats, choose quality settings, and generate AI-powered artwork.
+
+---
+
+### Generation Workspace
+
+![Generation Workspace](assets/UI_gradle2.png)
+
+Interactive Gradio workspace featuring style presets, output customization options, and real-time image generation controls.
+
+---
+
+### Usage Tips & Guidance
+
+![Tips and Guidance](assets/tips_gradle.png)
+
+Built-in guidance panel providing prompt-writing tips and recommendations for generating high-quality Netflix-style assets.
+
+---
+
+# 🖼️ Sample Outputs
+
+### Astronaut-Themed Poster
+
+![Astronaut Sample](samples/lone_astro.png)
+
+---
+
+### Creative Test Output
+
+![Test Output](samples/test_output_1780750421.jpg)
+
+---
+
+### Umbrella Concept Artwork
+
+![Umbrella Artwork](samples/umbrella.webp)
+
+These examples demonstrate the capabilities of the OpenAI `gpt-image-1` model integrated within the Netflix AI Design Studio workflow.
+
 
 ## Architecture
 
@@ -194,11 +242,14 @@ Prompt User via getpass()
 netflix-ai-design-studio/
 │
 ├── assets/
-│   ├── UI_1
-│   └── UI_2
+│   ├── UI_gradle.png
+│   ├── UI_gradle2.png
+│   └── tips_gradle.png
 │
 ├── samples/
-│   └── generated_images/
+│   ├── lone_astro.png
+│   ├── test_output_1780750421.jpg
+│   └── umbrella.webp
 │
 ├── Netflix_AI_Design_Studio.ipynb
 ├── requirements.txt
